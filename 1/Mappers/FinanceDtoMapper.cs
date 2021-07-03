@@ -22,5 +22,13 @@ namespace _1.Mappers
                 Title=finance.Title,
             };
         }
+        public static List<FinanceDto> ToDto(this List<Finance> finance)
+        {
+            var result = finance.Select(x => new FinanceDto{ assetclassification = x.assetclassification , Date=x.Date, Description=x.Description, Title=x.Title, Price=x.Price, ID=x.ID  }).ToList();
+            return result;
+        }    
+
+        
+
     }
 }

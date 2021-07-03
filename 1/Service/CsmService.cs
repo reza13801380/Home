@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using _1.Dto;
 using _1.Mappers;
+using System.Collections.Generic;
 
 namespace _1.Service
 {
@@ -54,6 +55,31 @@ namespace _1.Service
             var result = await _csmRepository.GetbyId(Id);
             return result.ToDto();
         }
+
+        public async Task<bool> EditFinance(EditFinanceCommand command)
+        {
+            var update = await _csmRepository.GetbyId(command.ID);
+            update.Price = command.Price;
+            update.Title = command.Title;
+            update.assetclassification = command.assetclassification;
+            update.Date = command.Date;
+            update.Description = command.Description;
+            return await _csmRepository.Update();
+        }
+
+        public async Task <List<FinanceDto>> GetAll()
+        {
+            var result= await _csmRepository.GetAll();
+            return result.ToDto();
+        }
+
+        public async Task<bool> DeleteFinance(DeleteFinanceCommand command)
+        {
+            var result = await _csmRepository.GetbyId(command.ID);
+            return await _csmRepository.DeleteFinance(result);
+
+        }
+
         //public async Task<CartInfoDtos> GetAllCarts()
         //{
         //    await _csmRepository.GetAllCarts(CartInfoDtos.ToModel()):

@@ -51,13 +51,36 @@ namespace _1.Controllers
         }
 
         [HttpGet("{userId}/Finances/{financeId}")]
-        public async Task<IActionResult> GetbyId(Guid userId,Guid financeId)
+        public async Task<IActionResult> GetbyId(Guid Id)
         {
 
             var result = await _csmService.GetbyId(Id);
             return Ok(result);
 
         }
+        [HttpPut("{Id}/EditFinance")]
+        public async Task<IActionResult> EditFinance(Guid id ,EditFinanceCommand command)
+        {
+            command.ID= id;
+            var result = await _csmService.EditFinance(command);
+            return Ok(result);
+        }
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _csmService.GetAll();
+            return Ok(result);
+
+        }
+        [HttpDelete("DeleteFinance")]
+        public async Task<IActionResult> DeleteFinance(DeleteFinanceCommand command)
+        {
+            var result = await _csmService.DeleteFinance(command);
+            return Ok(result);
+        }
+        
+
+
 
 
     }

@@ -14,6 +14,9 @@ namespace _1.Repository
         Task<bool> AddCart(CartInfo command);
         Task<bool> AddFinance(Finance finance);
         Task<Finance> GetbyId(Guid Id);
+        Task<bool> Update();
+        Task<List<Finance>> GetAll();
+        Task<bool> DeleteFinance(Finance finance);
        
     }
 }

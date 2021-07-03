@@ -17,6 +17,9 @@ namespace _1.Service
         Task<bool> AddCart(AddCartCommand command);
         Task<bool> AddFinance(AddFinanceCommand command);
         Task<FinanceDto> GetbyId(Guid Id);
+        Task<bool> EditFinance(EditFinanceCommand command);
+        Task <List<FinanceDto>> GetAll();
+        Task<bool> DeleteFinance(DeleteFinanceCommand command);
         
         //Task<CartInfoDtos> GetAllCarts();
      }

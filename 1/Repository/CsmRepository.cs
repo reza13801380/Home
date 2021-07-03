@@ -35,6 +35,18 @@ namespace _1.Repository
             return await _context.SaveChangesAsync() > 0;
         }
 
+        public async Task<bool> DeleteFinance(Finance finance)
+        {
+            _context.finances.Remove(finance);
+            return await _context.SaveChangesAsync() > 0;
+        }
+
+        public async Task<List<Finance>> GetAll()
+        {
+            var result = await _context.finances.ToListAsync();
+            return result;
+        }
+
         public async  Task<Finance> GetbyId(Guid Id)
         {
             var finance = await _context.finances.FirstOrDefaultAsync(a => a.ID == Id);
@@ -48,6 +60,10 @@ namespace _1.Repository
                 .SingleOrDefaultAsync(x => x.CellPhone == cellphone);
                 
         }
-            
+
+        public async Task<bool> Update()
+        {
+            return await _context.SaveChangesAsync() > 0;
+        }
     }
 }

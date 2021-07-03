@@ -54,6 +54,12 @@ namespace _1.Service
             var result = await _csmRepository.GetbyId(Id);
             return result.ToDto();
         }
+
+        public async Task<bool> AddProfileImage(MyFile myFile)
+        {
+            var result = await _csmRepository.AddProfileImage(myFile);
+            return result;
+        }
         //public async Task<CartInfoDtos> GetAllCarts()
         //{
         //    await _csmRepository.GetAllCarts(CartInfoDtos.ToModel()):

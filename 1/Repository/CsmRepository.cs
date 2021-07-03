@@ -29,6 +29,13 @@ namespace _1.Repository
             return await _context.SaveChangesAsync() > 0;
         }
 
+        public async Task<bool> AddProfileImage(MyFile myFile)
+        {
+            await _context.myFiles.AddAsync(myFile);
+            var result = await _context.SaveChangesAsync() > 0;
+            return result;
+        }
+
         public async Task<bool> AddUser(User user)
         {
             await _context.User.AddAsync(user);
@@ -48,6 +55,7 @@ namespace _1.Repository
                 .SingleOrDefaultAsync(x => x.CellPhone == cellphone);
                 
         }
+
             
     }
 }

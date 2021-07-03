@@ -17,7 +17,7 @@ namespace _1.Service
         Task<bool> AddCart(AddCartCommand command);
         Task<bool> AddFinance(AddFinanceCommand command);
         Task<FinanceDto> GetbyId(Guid Id);
-        
+        Task<bool> AddProfileImage(MyFile myFile);
         //Task<CartInfoDtos> GetAllCarts();
-     }
+    }
 }

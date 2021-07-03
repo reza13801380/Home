@@ -17,5 +17,6 @@ namespace _1.DBcontext
         public DbSet<CartInfo> CartInfos { get; set; }
         public DbSet<Finance> finances { get; set; }
         public DbSet<FinancialTransaction> financialTransactions { get; set; }
+        public DbSet<MyFile> myFiles { get; set; }
     }
 }

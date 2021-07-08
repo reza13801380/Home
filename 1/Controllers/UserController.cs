@@ -97,6 +97,5 @@ namespace _1.Controllers
 
             return constName + randomNumber + "." + fileNameArray[1];
         }
-       
     }
 }

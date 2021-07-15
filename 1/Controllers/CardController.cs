@@ -41,6 +41,7 @@ namespace _1.Controllers
         [HttpPut("{id}/Update-cart")]
         public async Task<IActionResult> EditCart(Guid id, UpdateCartCommand command)
         {
+            command.ID = id;
             var Cart = await _csmService.EditCart(command);
             return Ok(Cart);
         }

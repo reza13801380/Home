@@ -7077,11 +7077,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\O\\Desktop\\New folder (3)\\Home\\1\\1.csproj",
+      "projectUniqueName": "C:\\Users\\O\\Desktop\\New folder (3)\\Home - Copy\\1\\1.csproj",
       "projectName": "1",
-      "projectPath": "C:\\Users\\O\\Desktop\\New folder (3)\\Home\\1\\1.csproj",
+      "projectPath": "C:\\Users\\O\\Desktop\\New folder (3)\\Home - Copy\\1\\1.csproj",
       "packagesPath": "C:\\Users\\O\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\O\\Desktop\\New folder (3)\\Home\\1\\obj\\",
+      "outputPath": "C:\\Users\\O\\Desktop\\New folder (3)\\Home - Copy\\1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\O\\AppData\\Roaming\\NuGet\\NuGet.Config",

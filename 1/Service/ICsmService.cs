@@ -26,4 +26,10 @@ namespace _1.Service
         Task<bool> EditCart(UpdateCartCommand command);
 
     }
+        Task<bool> EditFinance(EditFinanceCommand command);
+        Task <List<FinanceDto>> GetAll();
+        Task<bool> DeleteFinance(DeleteFinanceCommand command);
+        
+        //Task<CartInfoDtos> GetAllCarts();
+     }
 }

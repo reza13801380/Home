@@ -23,5 +23,9 @@ namespace _1.Repository
         Task<List<CartInfoDtos>> GetAllCarts(Guid id);
 
 
+        Task<bool> Update();
+        Task<List<Finance>> GetAll();
+        Task<bool> DeleteFinance(Finance finance);
+       
     }
 }

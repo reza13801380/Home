@@ -97,9 +97,33 @@ namespace _1.Controllers
 
             return constName + randomNumber + "." + fileNameArray[1];
         }
-        [HttpPut("{Id}/Update-User")] 
+      
+        [HttpPut("{Id}/EditFinance")]
+        public async Task<IActionResult> EditFinance(Guid id ,EditFinanceCommand command)
+        {
+            command.ID= id;
+            var result = await _csmService.EditFinance(command);
+            return Ok(result);
+        }
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _csmService.GetAll();
+            return Ok(result);
+
+        }
+        [HttpDelete("DeleteFinance")]
+        public async Task<IActionResult> DeleteFinance(DeleteFinanceCommand command)
+        {
+            var result = await _csmService.DeleteFinance(command);
+            return Ok(result);
+        }
+
+
+        [HttpPut("{Id}/Update-User")]
         public async Task<IActionResult> EditUserInformation(Guid id, UpdateUserCommand command)
 
+        
         {
             var agar = await _csmService.PhoneNumberInquiry(command.CellPhone);
             if (agar == true)

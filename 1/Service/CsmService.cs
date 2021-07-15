@@ -58,11 +58,30 @@ namespace _1.Service
             return result.ToDto();
         }
 
-        public async Task<bool> AddProfileImage(MyFile myFile)
+        public async Task<bool> EditFinance(EditFinanceCommand command)
         {
-            var result = await _csmRepository.AddProfileImage(myFile);
-            return result;
+            var update = await _csmRepository.GetbyId(command.ID);
+            update.Price = command.Price;
+            update.Title = command.Title;
+            update.assetclassification = command.assetclassification;
+            update.Date = command.Date;
+            update.Description = command.Description;
+            return await _csmRepository.Update();
         }
+
+        public async Task <List<FinanceDto>> GetAll()
+        {
+            var result= await _csmRepository.GetAll();
+            return result.ToDto();
+        }
+
+        public async Task<bool> DeleteFinance(DeleteFinanceCommand command)
+        {
+            var result = await _csmRepository.GetbyId(command.ID);
+            return await _csmRepository.DeleteFinance(result);
+
+        }
+
         //public async Task<CartInfoDtos> GetAllCarts()
         //{
         //    await _csmRepository.GetAllCarts(CartInfoDtos.ToModel()):

@@ -60,6 +60,7 @@ namespace _1.Models
 
         public User(string address, DateTime birthDate, string cellPhone, Gender gender, string phone, string nationalCode , List<CartInfo> cartInfos )
         {
+            Id = Guid.NewGuid();
             Address = address;
             BirthDate = birthDate;
             CellPhone = cellPhone;

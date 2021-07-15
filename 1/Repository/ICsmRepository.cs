@@ -1,4 +1,5 @@
 ﻿using _1.Commands;
+using _1.Dtos;
 using _1.Models;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,12 @@ namespace _1.Repository
         Task<bool> AddFinance(Finance finance);
         Task<Finance> GetbyId(Guid Id);
         Task<bool> AddProfileImage(MyFile myFile);
+        Task<bool> PhoneNumberInquiry(string CellPhone);
+        Task<User> GetById(Guid Id);
+        Task<bool> Update();
+        Task<CartInfo> GetCardById(Guid id);
+        Task<List<CartInfoDtos>> GetAllCarts(Guid id);
+
 
     }
 }

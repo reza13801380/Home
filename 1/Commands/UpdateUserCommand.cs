@@ -8,6 +8,7 @@ namespace _1.Commands
 {
     public class UpdateUserCommand
     {
+        public Guid id { get; set; }
         public string FullName { get; set; }
         public Gender gender { get; set; }
         public string NationalCode { get; set; }

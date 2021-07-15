@@ -23,14 +23,30 @@ namespace _1.Controllers
         [HttpPost("AddCart")]
         public async Task<IActionResult> AddCart(AddCartCommand command)
         {
-            var result = await _csmService.AddCart(command);    
+            var result = await _csmService.AddCart(command);
             return Ok(result);
         }
-        //[HttpGet("GetAll")]
-        //public async Task<IActionResult> GetAllCarts()
-        //{
-        //    //var result = await _csmService.GetAllCarts();
-        //    //return Ok(result);
-        //}
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAllCarts(Guid id )
+        {
+            var result = await _csmService.GetAllCarts(id);
+            return Ok(result);
+        }
+        [HttpGet("id")]
+        public async Task<IActionResult> GetCardById(Guid id)
+        {
+            var result = await _csmService.GetCardById(id);
+            return Ok(result);
+        }
+        [HttpPut("{id}/Update-cart")]
+        public async Task<IActionResult> EditCart(Guid id, UpdateCartCommand command)
+        {
+            var Cart = await _csmService.EditCart(command);
+            return Ok(Cart);
+        }
+        
+            
+    
+
     }
 }

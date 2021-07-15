@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace _1.Repository
 {
-    public class CsmRepository : BaseRepository , ICsmRepository
+    public class CsmRepository : BaseRepository, ICsmRepository
     {
         public CsmRepository(DataBaseContext context) : base(context)
         {
@@ -42,7 +42,7 @@ namespace _1.Repository
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public async  Task<Finance> GetbyId(Guid Id)
+        public async Task<Finance> GetbyId(Guid Id)
         {
             var finance = await _context.finances.FirstOrDefaultAsync(a => a.ID == Id);
             return finance;
@@ -53,9 +53,38 @@ namespace _1.Repository
             return await _context.User
                 .Include(x => x.Cartinfo)
                 .SingleOrDefaultAsync(x => x.CellPhone == cellphone);
-                
+
+        }
+        public async Task<bool> PhoneNumberInquiry(string CellPhone)
+        {
+            var user = _context.User.FirstOrDefault(q => q.CellPhone == CellPhone);
+            if (user != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public async Task<User> GetById(Guid Id)
+        {
+            var info = await
+                _context.User
+                .Include(q => q.Cartinfo)
+                .FirstOrDefaultAsync(l => l.Id==Id);
+            return info;
+        }
+        public async Task<bool> Update()
+        {
+            return await _context.SaveChangesAsync() > 0;
         }
 
-            
+        public async Task<CartInfo> GetCardById(Guid id)
+        {
+            var info = await _context.CartInfos.FirstOrDefaultAsync(x => x.ID==id);
+            return info;
+
+        }
     }
 }

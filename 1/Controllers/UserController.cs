@@ -97,5 +97,29 @@ namespace _1.Controllers
 
             return constName + randomNumber + "." + fileNameArray[1];
         }
+        [HttpPut("{Id}/Update-User")] 
+        public async Task<IActionResult> EditUserInformation(Guid id, UpdateUserCommand command)
+
+        {
+            var agar = await _csmService.PhoneNumberInquiry(command.CellPhone);
+            if (agar == true)
+            {
+                return Ok(new { type = "error", User = "exist" });
+            }
+            else
+            {
+                command.id = id;
+                var result = await _csmService.EditUser(command);
+                return Ok(new { type = "success" });
+            }
+
+
+        }
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> GetById(Guid Id)
+        {
+            var result = await _csmService.GetById(Id);
+            return Ok(result);
+        }
     }
 }

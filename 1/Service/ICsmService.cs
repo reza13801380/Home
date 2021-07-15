@@ -18,6 +18,12 @@ namespace _1.Service
         Task<bool> AddFinance(AddFinanceCommand command);
         Task<FinanceDto> GetbyId(Guid Id);
         Task<bool> AddProfileImage(MyFile myFile);
-        //Task<CartInfoDtos> GetAllCarts();
+        Task<List<CartInfoDtos>> GetAllCarts(Guid id);
+        Task<bool> PhoneNumberInquiry(string CellPhone);
+        Task<bool> EditUser(UpdateUserCommand command);
+        Task<User> GetById(Guid Id);
+        Task<CartInfo> GetCardById(Guid id);
+        Task<bool> EditCart(UpdateCartCommand command);
+
     }
 }

@@ -20,12 +20,14 @@ namespace _1.Repository
         Task<User> GetById(Guid Id);
         Task<bool> Update();
         Task<CartInfo> GetCardById(Guid id);
-        Task<List<CartInfoDtos>> GetAllCarts(Guid id);
-
-
-        Task<bool> Update();
         Task<List<Finance>> GetAll();
         Task<bool> DeleteFinance(Finance finance);
-       
+        Task<List<CartInfo>> GetAllCart();
+        Task<bool> AddTransaction(FinancialTransaction financialTransaction);
+        Task<FinancialTransaction> GetTransactionbyId(Guid Id);
+        Task<List<FinancialTransaction>> GetAllTransaction();
+        Task<bool> DeleteTransaction(FinancialTransaction financialTransaction);
+
+
     }
 }

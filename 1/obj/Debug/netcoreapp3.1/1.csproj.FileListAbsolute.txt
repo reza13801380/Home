@@ -43,7 +43,6 @@ C:\Users\O\source\repos\1\1\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.d
 C:\Users\O\source\repos\1\1\bin\Debug\netcoreapp3.1\System.Web.Http.dll
 C:\Users\O\source\repos\1\1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\O\source\repos\1\1\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
-C:\Users\green pc\source\repos\1\1\obj\Debug\netcoreapp3.1\1.csprojAssemblyReference.cache
 C:\Users\green pc\source\repos\1\1\obj\Debug\netcoreapp3.1\1.AssemblyInfoInputs.cache
 C:\Users\green pc\source\repos\1\1\obj\Debug\netcoreapp3.1\1.AssemblyInfo.cs
 C:\Users\green pc\source\repos\1\1\obj\Debug\netcoreapp3.1\1.csproj.CoreCompileInputs.cache

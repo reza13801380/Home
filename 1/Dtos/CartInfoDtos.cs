@@ -12,7 +12,7 @@ namespace _1.Dtos
         public string Cvv2 { get; set; }
         public string ExpireDateYear { get; set; }
         public string ExpireDateMonth { get; set; }
-        public string Balance { get; set; }
+        public decimal Balance { get; set; }
         public string Deposit { get; set; }
     }
 }

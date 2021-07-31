@@ -1,5 +1,6 @@
 ﻿using _1.Commands;
 using _1.DBcontext;
+using _1.Dtos;
 using _1.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -97,6 +98,36 @@ namespace _1.Repository
             var info = await _context.CartInfos.FirstOrDefaultAsync(x => x.ID==id);
             return info;
 
+        }
+
+        public async Task<List<CartInfo>> GetAllCart()
+        {
+            var result = await _context.CartInfos.ToListAsync();
+            return result;
+        }
+
+        public async Task<bool> AddTransaction(FinancialTransaction financialTransaction)
+        {
+            var result = await _context.financialTransactions.AddAsync(financialTransaction);
+            return await _context.SaveChangesAsync() > 0;
+        }
+
+        public async Task<FinancialTransaction> GetTransactionbyId(Guid Id)
+        {
+            var info = await _context.financialTransactions.FirstOrDefaultAsync(x => x.ID == Id);
+            return info;
+        }
+        public async Task<List<FinancialTransaction>> GetAllTransaction()
+        {
+            var info = await _context.financialTransactions.ToListAsync();
+            return info;
+
+        }
+
+        public async Task<bool> DeleteTransaction(FinancialTransaction financialTransaction)
+        {
+            _context.financialTransactions.Remove(financialTransaction);
+            return await _context.SaveChangesAsync() > 0;
         }
     }
 }

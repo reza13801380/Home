@@ -28,7 +28,12 @@ namespace _1.UserCommandMapper
         {
             return new Finance(command.Price, command.Description, command.CartID, command.assetclassification, command.Title, command.Date);
         }
-       
+        public static FinancialTransaction ToModel(this AddTransactionCommand command)
+        {
+            return new FinancialTransaction(command.Price, command.Description, command.CartID, command.type, command.transaction_Classification, command.Title, command.Date);
+
+        }
+
 
     }
 }

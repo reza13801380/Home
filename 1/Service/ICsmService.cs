@@ -18,18 +18,23 @@ namespace _1.Service
         Task<bool> AddFinance(AddFinanceCommand command);
         Task<FinanceDto> GetbyId(Guid Id);
         Task<bool> AddProfileImage(MyFile myFile);
-        Task<List<CartInfoDtos>> GetAllCarts(Guid id);
         Task<bool> PhoneNumberInquiry(string CellPhone);
         Task<bool> EditUser(UpdateUserCommand command);
         Task<User> GetById(Guid Id);
         Task<CartInfo> GetCardById(Guid id);
         Task<bool> EditCart(UpdateCartCommand command);
-
-    }
         Task<bool> EditFinance(EditFinanceCommand command);
-        Task <List<FinanceDto>> GetAll();
+        Task<List<FinanceDto>> GetAll();
         Task<bool> DeleteFinance(DeleteFinanceCommand command);
-        
+        Task<List<CartInfoDtos>> GetAllCart();
+        Task<bool> AddTransaction(AddTransactionCommand command);
+        Task<TransactionDto> GetTransactionbyId(Guid Id);
+        Task<bool> EditTransaction(EditTransactionCommand command);
+        Task<List<TransactionDto>> GetAllTransaction();
+        Task<bool> DeleteTransaction(DeleteTransactionCommand command);
+
+
+
         //Task<CartInfoDtos> GetAllCarts();
-     }
+    }
 }

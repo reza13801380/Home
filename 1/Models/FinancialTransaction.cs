@@ -11,9 +11,8 @@ namespace _1.Models
         public FinancialTransaction(decimal price, string description, Guid cartID, type Type, Transaction_classification transaction_classification, string title, DateTime date)
         {
             ID = Guid.NewGuid();
-            CartID = cartID;
+            
             Description = description;
-            CartID = cartID;
             type = Type;
             transaction_Classification = transaction_classification;
             Title = title;

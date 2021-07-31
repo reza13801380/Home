@@ -27,10 +27,11 @@ namespace _1.Controllers
             return Ok(result);
         }
         [HttpGet("GetAll")]
-        public async Task<IActionResult> GetAllCarts(Guid id )
+        public async Task<IActionResult> GetAllCarts()
         {
-            var result = await _csmService.GetAllCarts(id);
+            var result = await _csmService.GetAllCart();
             return Ok(result);
+            
         }
         [HttpGet("id")]
         public async Task<IActionResult> GetCardById(Guid id)

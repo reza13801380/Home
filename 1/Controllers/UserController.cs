@@ -54,14 +54,15 @@ namespace _1.Controllers
             return Ok(result);
         }
 
-        //[HttpGet("{userId}/Finances/{financeId}")]
-        //public async Task<IActionResult> GetbyId(Guid userId, Guid financeId)
-        //{
+        [HttpGet("{userId}/Finances/{financeId}")]
+        public async Task<IActionResult> GetbyId(Guid Id)
+        {
 
-        //    var result = await _csmService.GetbyId(Id);
-        //    return Ok(result);
+            var result = await _csmService.GetbyId(Id);
+            return Ok(result);
 
-        //}
+        }
+
         [HttpPost("Upload")]
         public async Task<IActionResult> Upload(IFormFile file)
         {
@@ -86,6 +87,7 @@ namespace _1.Controllers
             }
 
         }
+
         private string FileNameGenerator(string fileName)
         {
             string constName = $"{fileName}HomeManagement";
@@ -97,14 +99,15 @@ namespace _1.Controllers
 
             return constName + randomNumber + "." + fileNameArray[1];
         }
-      
+
         [HttpPut("{Id}/EditFinance")]
-        public async Task<IActionResult> EditFinance(Guid id ,EditFinanceCommand command)
+        public async Task<IActionResult> EditFinance(Guid id, EditFinanceCommand command)
         {
-            command.ID= id;
+            command.ID = id;
             var result = await _csmService.EditFinance(command);
             return Ok(result);
         }
+
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
@@ -112,6 +115,7 @@ namespace _1.Controllers
             return Ok(result);
 
         }
+
         [HttpDelete("DeleteFinance")]
         public async Task<IActionResult> DeleteFinance(DeleteFinanceCommand command)
         {
@@ -119,11 +123,10 @@ namespace _1.Controllers
             return Ok(result);
         }
 
-
         [HttpPut("{Id}/Update-User")]
         public async Task<IActionResult> EditUserInformation(Guid id, UpdateUserCommand command)
 
-        
+
         {
             var agar = await _csmService.PhoneNumberInquiry(command.CellPhone);
             if (agar == true)
@@ -139,11 +142,52 @@ namespace _1.Controllers
 
 
         }
+
         [HttpGet("{Id}")]
         public async Task<IActionResult> GetById(Guid Id)
         {
             var result = await _csmService.GetById(Id);
             return Ok(result);
         }
+
+        [HttpPost("AddTransaction")]//تست شد
+        public async Task<IActionResult> AddTransaction(AddTransactionCommand command)
+        {
+            var result = await _csmService.AddTransaction(command);
+            return Ok(result);
+        }
+
+        [HttpGet("{Id}/GetTransactionbyId")]
+        public async Task<IActionResult> GetTransactionbyId(Guid Id)
+        {
+            var result = await _csmService.GetTransactionbyId(Id);
+            return Ok(result);
+        }
+
+        [HttpPut("{Id}/EditTransaction")]
+        public async Task<IActionResult> EditTransaction(Guid Id , EditTransactionCommand command)
+        {
+            command.ID=Id;
+            var result = await _csmService.EditTransaction(command);
+            return Ok(result);
+
+        }
+
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAllTransaction()
+        {
+            var result = await _csmService.GetAllTransaction();
+            return Ok(result);
+        }
+
+        [HttpDelete("DeleteTransaction")]
+        public async Task<IActionResult> DeleteTransaction(DeleteTransactionCommand command)
+        {
+            var result = await _csmService.DeleteTransaction(command);
+            return Ok(result);
+        }
+
+       
+    
     }
 }

@@ -57,7 +57,6 @@ namespace _1.Service
             var result = await _csmRepository.GetbyId(Id);
             return result.ToDto();
         }
-
         public async Task<bool> EditFinance(EditFinanceCommand command)
         {
             var update = await _csmRepository.GetbyId(command.ID);
@@ -68,26 +67,17 @@ namespace _1.Service
             update.Description = command.Description;
             return await _csmRepository.Update();
         }
-
         public async Task <List<FinanceDto>> GetAll()
         {
             var result= await _csmRepository.GetAll();
             return result.ToDto();
         }
-
         public async Task<bool> DeleteFinance(DeleteFinanceCommand command)
         {
             var result = await _csmRepository.GetbyId(command.ID);
             return await _csmRepository.DeleteFinance(result);
 
         }
-
-        //public async Task<CartInfoDtos> GetAllCarts()
-        //{
-        //    await _csmRepository.GetAllCarts(CartInfoDtos.ToModel()):
-        //    return Dtos;
-
-        //}
         public async Task<bool> PhoneNumberInquiry(string CellPhone)
         {
             return await _csmRepository.PhoneNumberInquiry(CellPhone);
@@ -108,26 +98,10 @@ namespace _1.Service
             user.FullName = command.FullName;
             return await _csmRepository.Update();
         }
-
         public async Task<CartInfo> GetCardById(Guid id)
         {
             return await _csmRepository.GetCardById(id);
         }
-
-        public async Task<List<CartInfoDtos>> GetAllCarts(Guid id)
-        {
-            var result = await _csmRepository.GetById(id);
-            var Cart = result.Cartinfo.Select(x => new CartInfoDtos
-            {
-                CartNumber = x.CartNumber,
-                Cvv2 = x.Cvv2,
-                ExpireDateMonth = x.ExpireDateMonth,
-                ExpireDateYear = x.ExpireDateYear
-            });
-            return Cart.ToList();
-
-        }
-
         public async Task<bool> EditCart(UpdateCartCommand command)
         {
             var Cart = await _csmRepository.GetCardById(command.ID);
@@ -139,6 +113,53 @@ namespace _1.Service
 
         }
 
+        public async Task<bool> AddProfileImage(MyFile myFile)
+        {
+            var result = await _csmRepository.AddProfileImage(myFile);
+            return result;
+        }
+        public async Task<List<CartInfoDtos>> GetAllCart()
+        {
+            var result = await _csmRepository.GetAllCart();
+            return result.ToDto();
+        }
+
+        public async Task<bool> AddTransaction(AddTransactionCommand command)
+        {
+            return await _csmRepository.AddTransaction(command.ToModel());
+        }
+
+        public async Task<TransactionDto> GetTransactionbyId(Guid Id)
+        {
+            var result = await _csmRepository.GetTransactionbyId(Id);
+            return result.TonewDto();
+        }
+
+        public async Task<bool> EditTransaction(EditTransactionCommand command)
+        {
+            var update = await _csmRepository.GetTransactionbyId(command.ID);
+            update.ID = command.ID;
+            update.Price = command.Price;
+            update.Title = command.Title;
+            update.transaction_Classification = command.transaction_Classification;
+            update.type = command.type;
+            update.Description = command.Description;
+            update.Date = command.Date;
+            update.CartID = command.CartID;
+            return await _csmRepository.Update();
+        }
+
+        public async Task<List<TransactionDto>> GetAllTransaction()
+        {
+            var result = await _csmRepository.GetAllTransaction();
+            return result.ToDto();
+        }
+
+        public async Task<bool> DeleteTransaction(DeleteTransactionCommand command)
+        {
+            var result = await _csmRepository.GetTransactionbyId(command.ID);
+            return await _csmRepository.DeleteTransaction(result);
+        }
     }
 
 
